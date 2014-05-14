@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Foo | Bruviks Blog]]></title>
+  <link href="http://bruvik.github.io/blog/categories/foo/atom.xml" rel="self"/>
+  <link href="http://bruvik.github.io/"/>
+  <updated>2014-05-14T09:15:27+02:00</updated>
+  <id>http://bruvik.github.io/</id>
+  <author>
+    <name><![CDATA[Anders Bruvik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Test Post]]></title>
+    <link href="http://bruvik.github.io/blog/2014/05/14/test-post/"/>
+    <updated>2014-05-14T08:51:57+02:00</updated>
+    <id>http://bruvik.github.io/blog/2014/05/14/test-post</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
