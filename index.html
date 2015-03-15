@@ -9,8 +9,7 @@
   <meta name="author" content="Anders Bruvik">
 
   
-  <meta name="description" content="testing, testing 123
-">
+  <meta name="description" content="OS X comes with a tool called networksetup, that lets you change networksettings on OS X from the command line. Among other things, it can be used to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,7 +83,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/12/06/123-testing/">123, Testing</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/03/setting-proxy-settings-on-os-x-from-command-line/">Setting proxy settings on OS X from command line</a></h1>
     
     
       <p class="meta">
@@ -93,14 +92,51 @@
 
 
 
-<time class='entry-date' datetime='2014-12-06T22:48:25+01:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:48 pm</span></time>
+<time class='entry-date' datetime='2015-03-15T10:41:36+01:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:41 am</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>testing, testing 123</p>
+  <div class="entry-content"><p>OS X comes with a tool called <code>networksetup</code>, that lets you change networksettings on OS X from the command line. Among other things, it can be used to set proxy settings for network interfaces, even when the options are not visible in the GUI.</p>
+
+<p>To list all network interfaces:</p>
+
+<pre><code>$ networksetup -listallnetworkservices
+An asterisk (*) denotes that a network service is disabled.
+Thunderbolt Ethernet
+Wi-Fi
+VPN (Cisco IPSec)
+Bluetooth DUN 2
+iPad USB
+iPhone
+Bluetooth PAN
+</code></pre>
+
+<p>To list information about HTTPS proxy settings for a particular interface:</p>
+
+<pre><code>$ networksetup -getsecurewebproxy 'iPad USB'
+Enabled: No
+Server: 127.0.0.1
+Port: 8888
+Authenticated Proxy Enabled: 0
+</code></pre>
+
+<p>Similarly, this command showes proxy settings for HTTP proxies:</p>
+
+<pre><code>$ networksetup -getwebproxy 'iPad USB'
+Enabled: No
+Server: 127.0.0.1
+Port: 8888
+Authenticated Proxy Enabled: 0
+</code></pre>
+
+<p>Use <code>man networksetup</code> to see all options to networksetup. There are options to show all different settings for various proxies.</p>
+
+<p>To turn on or off a proxy, use <code>networksetup -setsecurewebproxystate 'iPad USB' on</code>. This command turns on HTTPS-proxy for the iPad USB interface. You can use the same command to turn off.</p>
+
+<p>The full command to change settings for the proxy is <code>networksetup -setsecurewebproxy &lt;networkservice&gt; &lt;domain&gt; &lt;port number&gt; &lt;authenticated&gt; &lt;username&gt; &lt;password&gt;</code> The <code>&lt;domain&gt;</code> and <code>&lt;portnumber&gt;</code> is the hostname and port of the proxy.</p>
 </div>
   
   
@@ -121,7 +157,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/12/06/123-testing/">123, Testing</a>
+        <a href="/blog/2015/03/setting-proxy-settings-on-os-x-from-command-line/">Setting proxy settings on OS X from command line</a>
       </li>
     
   </ul>
@@ -137,7 +173,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Anders Bruvik -
+  Copyright &copy; 2015 - Anders Bruvik -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -158,15 +194,6 @@
 </script>
 
 
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
